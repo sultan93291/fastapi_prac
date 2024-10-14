@@ -1,6 +1,7 @@
 from pydantic import BaseModel 
 
-class note(BaseModel):
-  tittle:str
-  descreption:str
-  isImportant:bool
+
+class Note(BaseModel):
+    title: str          # Correct spelling
+    description: str    # Correct spelling
+    isImportant: bool
