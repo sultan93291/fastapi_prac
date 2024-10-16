@@ -51,3 +51,11 @@ async def create_item(request: Request, title: str = Form(...), description: str
 @note.get("/create-note", response_class=HTMLResponse)
 async def create_note(request: Request):
     return templates.TemplateResponse("createNotes.html", {"request": request})
+
+@note.get("/get-all-notes",response_class=HTMLResponse)
+async def get_all_notes(request: Request):
+    try:
+        all_notes = db_collection.find({})
+    except Exception as e: 
+        print(e)
+    return templates.TemplateResponse("getAllNotes.html", {"request": request, "all_notes":all_notes })
